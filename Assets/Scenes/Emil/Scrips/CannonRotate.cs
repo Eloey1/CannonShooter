@@ -6,12 +6,7 @@ public class CannonRotate : MonoBehaviour
 {
 
     [SerializeField] float rotateSpeed;
-    [SerializeField] Vector3 rotateDirection;
-
-    void Start()
-    {
-        
-    }
+    private Vector3 rotateDirection = new Vector3(0, 0, 1);
 
     
     void Update()

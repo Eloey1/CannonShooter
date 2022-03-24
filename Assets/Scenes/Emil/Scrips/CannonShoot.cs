@@ -8,15 +8,6 @@ public class CannonShoot : MonoBehaviour
     [SerializeField]Transform shootPoint;
     [SerializeField]GameObject ballPrefab;
     [SerializeField] float shootForce;
-
-    //GameObject ball;
-    //Rigidbody2D ballRb;
-
-    void Start()
-    {
-        //ballRb = ball.GetComponent<Rigidbody2D>();
-    }
-
     
     void Update()
     {
