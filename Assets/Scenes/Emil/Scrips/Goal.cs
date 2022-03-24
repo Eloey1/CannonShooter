@@ -5,8 +5,7 @@ using UnityEngine;
 public class Goal : MonoBehaviour
 {
 
-    [SerializeField] bool goal = false;
-    [SerializeField] GameObject ball; 
+    [SerializeField] bool goal = false; 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,6 +15,5 @@ public class Goal : MonoBehaviour
             Destroy(collision.gameObject);
             goal = true;
         }
-        
     }
 }
