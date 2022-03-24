@@ -9,11 +9,14 @@ public class Exempel : MonoBehaviour
     //public int exempelTest;
     //static bool staticBool;
     //[SerializeField] Rigidbody rigidbody;
+
+
+     
     
     
     void Start()
     {
-        
+        var noVar = 7.5;
     }
 
     
