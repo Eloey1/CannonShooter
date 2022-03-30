@@ -9,12 +9,12 @@ public class CannonTapToShoot : MonoBehaviour
     [SerializeField] Transform shootPoint;
     [SerializeField] GameObject ballPrefab;
     [SerializeField] float shootForce;
-    private BoxCollider2D collider;
+    private BoxCollider collider;
     [SerializeField] Button button;
     // Start is called before the first frame update
     void Start()
     {
-        collider = GetComponent<BoxCollider2D>();
+        collider = GetComponent<BoxCollider>();
         //button = GetComponent<Button>();
     }
 
@@ -27,7 +27,7 @@ public class CannonTapToShoot : MonoBehaviour
 
 
             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-            //touchPosition.z = 0f;
+            touchPosition.z = 0f;
 
             //transform.position = touchPosition;
 
@@ -43,7 +43,7 @@ public class CannonTapToShoot : MonoBehaviour
             //    Shoot();
             //}
 
-            if (collider.bounds.Contains(touchPosition))
+            if (collider.bounds.Contains(touchPosition) && touch.phase == TouchPhase.Began)
             {
                 Shoot();
             }
