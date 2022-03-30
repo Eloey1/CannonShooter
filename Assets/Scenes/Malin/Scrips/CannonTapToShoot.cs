@@ -26,7 +26,7 @@ public class CannonTapToShoot : MonoBehaviour
             Touch touch = Input.GetTouch(0);
 
 
-            //Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
             //touchPosition.z = 0f;
 
             //transform.position = touchPosition;
@@ -38,7 +38,12 @@ public class CannonTapToShoot : MonoBehaviour
             //    button.onClick.AddListener(Shoot);
             //}
 
-            if(Vector2.Distance((Vector2)transform.position, touch.position) <= 200)
+            //if(Vector2.Distance((Vector2)transform.position, touch.position) <= 200)
+            //{
+            //    Shoot();
+            //}
+
+            if (collider.bounds.Contains(touchPosition))
             {
                 Shoot();
             }
