@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Emil/Emil.unity
+    guid: 36b0ea79beb52fb4f8969ef5755192c3
   m_configObjects: {}
