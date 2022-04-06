@@ -36,6 +36,7 @@ public class CannonRotateOnTouch : MonoBehaviour
     }
     void CannonRotation(Vector3 touchPos)
     {
+        //Uträkning för riktningen mellan kanonens position och fingrets position.
         Vector2 weaponDir = touchPos - transform.position;
         angle = Mathf.Atan2(weaponDir.y, weaponDir.x) * Mathf.Rad2Deg + offset;
         transform.rotation = Quaternion.Euler(0, 0, angle);
