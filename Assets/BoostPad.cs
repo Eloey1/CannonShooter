@@ -22,4 +22,14 @@ public class BoostPad : MonoBehaviour
             ballRb.AddForce(ballRb.velocity * boostForce);
         }
     }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Ball")
+    //    {
+    //        GameObject ball = GameObject.FindGameObjectWithTag("Ball");
+    //        Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D>();
+    //        ballRb.AddForce(ballRb.velocity * boostForce);
+    //    }
+    //}
 }
