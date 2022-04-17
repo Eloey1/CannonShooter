@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SwitchScene : MonoBehaviour
 {
-    public void LoadScene()
+
+    public void LoadScene() //Malin
     {
         SceneManager.LoadScene("TestBanor");
     }
-    public void NextScene()
+    public void NextScene() //Malin
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
