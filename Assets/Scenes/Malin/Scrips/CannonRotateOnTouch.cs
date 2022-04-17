@@ -7,11 +7,11 @@ public class CannonRotateOnTouch : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] float rotationSpeed;
     [SerializeField] float offset;
-    private BoxCollider collider;
+    private BoxCollider boxCollider;
     private float angle;
     void Start()
     {
-        collider = GetComponent<BoxCollider>();
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class CannonRotateOnTouch : MonoBehaviour
             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
             touchPosition.z = 0f;
 
-            if (!collider.bounds.Contains(touchPosition))
+            if (!boxCollider.bounds.Contains(touchPosition))
             {
                 CannonRotation(touchPosition);
             }
