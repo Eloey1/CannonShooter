@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-
     [SerializeField] bool goal = false; 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -13,6 +13,7 @@ public class Goal : MonoBehaviour
         {
             Debug.Log("GOAL!!!");
             Destroy(collision.gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Additive);
             goal = true;
         }
     }
