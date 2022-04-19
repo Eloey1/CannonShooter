@@ -13,23 +13,15 @@ public class BoostPad : MonoBehaviour
         
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D collision) // Allt som kolliderar får en Boost
     {
-        if (collision.gameObject.tag == "Ball")
-        {
-            GameObject ball = GameObject.FindGameObjectWithTag("Ball");
-            Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D>();
-            ballRb.AddForce(ballRb.velocity * boostForce);
-        }
-    }
+        //if (collision.gameObject.tag == "Ball")
+        //{
+        //    Rigidbody2D ballRb = collision.gameObject.GetComponent<Rigidbody2D>();
+        //    ballRb.AddForce(ballRb.velocity * boostForce);
+        //}
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Ball")
-    //    {
-    //        GameObject ball = GameObject.FindGameObjectWithTag("Ball");
-    //        Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D>();
-    //        ballRb.AddForce(ballRb.velocity * boostForce);
-    //    }
-    //}
+        Rigidbody2D ballRb = collision.gameObject.GetComponent<Rigidbody2D>();
+        ballRb.AddForce(ballRb.velocity * boostForce);
+    }
 }
