@@ -27,7 +27,7 @@ public class CannonTapToShoot : MonoBehaviour
 
 
             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-            touchPosition.z = 0f;
+            touchPosition.z = -1f;
 
             //transform.position = touchPosition;
 

@@ -22,7 +22,7 @@ public class CannonRotateOnTouch : MonoBehaviour
             Touch touch = Input.GetTouch(0);
 
             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-            touchPosition.z = 0f;
+            touchPosition.z = -1f;
 
             if (!boxCollider.bounds.Contains(touchPosition))
             {
