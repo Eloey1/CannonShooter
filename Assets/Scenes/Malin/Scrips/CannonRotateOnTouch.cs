@@ -7,11 +7,11 @@ public class CannonRotateOnTouch : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] float rotationSpeed;
     [SerializeField] float offset;
-    private BoxCollider collider;
+    private BoxCollider boxCollider;
     private float angle;
     void Start()
     {
-        collider = GetComponent<BoxCollider>();
+        boxCollider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -22,9 +22,9 @@ public class CannonRotateOnTouch : MonoBehaviour
             Touch touch = Input.GetTouch(0);
 
             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-            touchPosition.z = 0f;
+            touchPosition.z = -1f;
 
-            if (!collider.bounds.Contains(touchPosition))
+            if (!boxCollider.bounds.Contains(touchPosition))
             {
                 CannonRotation(touchPosition);
             }
@@ -36,6 +36,7 @@ public class CannonRotateOnTouch : MonoBehaviour
     }
     void CannonRotation(Vector3 touchPos)
     {
+        //Uträkning för riktningen mellan kanonens position och fingrets position.
         Vector2 weaponDir = touchPos - transform.position;
         angle = Mathf.Atan2(weaponDir.y, weaponDir.x) * Mathf.Rad2Deg + offset;
         transform.rotation = Quaternion.Euler(0, 0, angle);
