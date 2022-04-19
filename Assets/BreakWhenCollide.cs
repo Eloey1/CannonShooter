@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BreakWhenCollide : MonoBehaviour
 {
+    [SerializeField] GameObject particlePrefab;
     private void Update()
     {
         //OnTriggerBreak2D(GetComponent<BoxCollider2D>());
@@ -31,6 +32,7 @@ public class BreakWhenCollide : MonoBehaviour
         {
             Debug.Log("Break plank");
             Destroy(gameObject);
+            Instantiate(particlePrefab, this.transform.position, this.transform.rotation);
             //goal = true;
         }
     }
