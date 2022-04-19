@@ -17,7 +17,7 @@ public class CannonShoot : MonoBehaviour
         }
     }
 
-    void Shoot() // nice script men spelet är bajs
+    void Shoot()
     {
         GameObject ball = Instantiate(ballPrefab, shootPoint.position, shootPoint.rotation);
         Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D>();
