@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Malin/ScenesMalin/Lvl1.unity
     guid: 032d60227fd63ee42b98846c47d09a77
   - enabled: 1
+    path: Assets/Scenes/Malin/ScenesMalin/Lvl4.unity
+    guid: 43af99b998bb2c74089615f6c62bd5e1
+  - enabled: 1
     path: Assets/Scenes/Malin/ScenesMalin/BetweenLevels.unity
     guid: 52c2cf282e365c049ae2450ccb958c5a
   - enabled: 1
