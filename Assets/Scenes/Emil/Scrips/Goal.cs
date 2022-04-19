@@ -13,7 +13,8 @@ public class Goal : MonoBehaviour
         {
             Debug.Log("GOAL!!!");
             Destroy(collision.gameObject);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Additive);
+            SceneManager.LoadScene("BetweenLevels", LoadSceneMode.Additive);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Additive);
             goal = true;
         }
     }
