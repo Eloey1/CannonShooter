@@ -54,7 +54,7 @@ public class CannonTapToShoot : MonoBehaviour
 
     void Shoot()
     {
-        GameObject ball = Instantiate(ballPrefab, shootPoint.position, shootPoint.rotation);
+        GameObject ball = Instantiate(ballPrefab, new Vector3(shootPoint.position.x, shootPoint.position.y, 0), shootPoint.rotation);
         Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D>();
         ballRb.AddForce(shootPoint.up * shootForce, ForceMode2D.Impulse);
     }
