@@ -352,9 +352,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01edd90eae494684c8fdd3bc49afccb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootPoint: {fileID: 0}
-  ballPrefab: {fileID: 0}
-  shootForce: 0
+  shootPoint: {fileID: 1726238867}
+  ballPrefab: {fileID: 7657913754731731651, guid: 01a151408a39f85478790368dcddebc0, type: 3}
+  shootForce: 12
 --- !u!114 &1307756577
 MonoBehaviour:
   m_ObjectHideFlags: 0
