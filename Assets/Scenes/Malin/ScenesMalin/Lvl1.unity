@@ -220,6 +220,8 @@ GameObject:
   - component: {fileID: 1307756573}
   - component: {fileID: 1307756572}
   - component: {fileID: 1307756571}
+  - component: {fileID: 1307756577}
+  - component: {fileID: 1307756576}
   m_Layer: 0
   m_Name: Cannon (1)
   m_TagString: Untagged
@@ -338,6 +340,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1307756576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307756570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01edd90eae494684c8fdd3bc49afccb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootPoint: {fileID: 0}
+  ballPrefab: {fileID: 0}
+  shootForce: 0
+--- !u!114 &1307756577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307756570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2355b0ca14aba3e4d937bc8065546c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 50
 --- !u!1001 &1599487592
 PrefabInstance:
   m_ObjectHideFlags: 0
