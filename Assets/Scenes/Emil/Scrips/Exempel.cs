@@ -17,6 +17,7 @@ public class Exempel : MonoBehaviour
     void Start()
     {
         var noVar = 7.5;
+        Comments();
     }
 
     
@@ -24,6 +25,18 @@ public class Exempel : MonoBehaviour
     {
         //rigidbody = GetComponent<Rigidbody>();
     }
+
+
+
+
+    void Comments()
+    {
+        // Använd kommentarer
+        /* för att andra ska förstå din kod lättare */
+    }
+
+
+
 
     #region DelaUppKod
 
