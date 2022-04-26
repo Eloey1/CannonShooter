@@ -4,28 +4,35 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject connectedPortal;
+    public bool activePortal = true; //Kan man använda annat än public / [SerializeField] här?
+    [SerializeField] bool changeDirection;
+    private Teleport connectedScript;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        connectedScript = connectedPortal.GetComponent<Teleport>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Ball") //När bollen kolliderar så...
+        if (collision.gameObject.tag == "Ball" && activePortal)
         {
-            Destroy(collision.gameObject); //Förflytta istället för att ta bort här?
+            collision.gameObject.GetComponent<Rigidbody2D>().position = connectedPortal.GetComponent<Transform>().position;
+            //Ändra så positionen blir rätt i förhållande.
 
-            //Eller skapa en ny boll i nästa portal med motsvarande velocity
+            if (changeDirection) //Skulle kunna ha en riktningskänslig variabel.
+            {
+                //Ändrar bollens riktning i x-led.
+            }
+            
+
+            connectedScript.activePortal = false; //Gör så bollen inte teleporterar direkt när den kommer till nästa portal
         }
+    }
 
-        Rigidbody2D ballRb = collision.gameObject.GetComponent<Rigidbody2D>(); //Kan nog användas för att hitta närmsta portal?
-        //Nej för vi använder kollisionens object...
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        activePortal = true; //Portalen kan användas igen när bollen lämnat.
     }
 }
