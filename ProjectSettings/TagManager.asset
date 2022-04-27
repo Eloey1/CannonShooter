@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ball
   - Goal
+  - Portal
   layers:
   - Default
   - TransparentFX
