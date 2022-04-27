@@ -19,9 +19,13 @@ public class DragToShoot : MonoBehaviour
     private float angle;
     private Touch touch;
 
+    private Vector3 touchPosition, shootPointPos;
+
     void Start()
     {
         boxCollider = GetComponent<BoxCollider>();
+        shootPointPos = shootPoint.position;
+        shootPointPos.z = -1;
     }
 
     // Update is called once per frame
@@ -31,10 +35,10 @@ public class DragToShoot : MonoBehaviour
         {
             touch = Input.GetTouch(0);
 
-            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+            touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
             touchPosition.z = -1f;
 
-            if (!boxCollider.bounds.Contains(touchPosition))
+            if (boxCollider.bounds.Contains(touchPosition))
             {
                 CannonRotation(touchPosition);
 
@@ -45,10 +49,6 @@ public class DragToShoot : MonoBehaviour
                 //CalculateShootForce(touch);
             }
 
-            if(touch.phase == TouchPhase.Ended)
-            {
-                Shoot(shootForce);
-            }
             
 
         }
@@ -59,8 +59,13 @@ public class DragToShoot : MonoBehaviour
         while(touch.phase != TouchPhase.Ended)
         {
             //Avståndsformeln mellan kanonens position och fingrets position
-            shootForce = Vector2.Distance(shootPoint.position, touch.position) / 10;
+            shootForce = Vector3.Distance(shootPointPos, touchPosition) / 10;
             Console.WriteLine(shootForce);
+        }
+
+        if (touch.phase == TouchPhase.Ended)
+        {
+            Shoot(shootForce);
         }
 
         Thread.CurrentThread.Join();
