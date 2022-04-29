@@ -8,6 +8,7 @@ public class Teleport : MonoBehaviour
     public bool activePortal = true; //Kan man använda annat än public / [SerializeField] här?
     [SerializeField] bool changeDirection;
     private Teleport connectedScript;
+    private float distance;
 
     private void Start()
     {
@@ -18,7 +19,11 @@ public class Teleport : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball" && activePortal)
         {
+
+
             collision.gameObject.GetComponent<Rigidbody2D>().position = connectedPortal.GetComponent<Transform>().position;
+
+            //collision.gameObject.transform.position.y += distance;
             //Ändra så positionen blir rätt i förhållande.
 
             if (changeDirection) //Skulle kunna ha en riktningskänslig variabel.

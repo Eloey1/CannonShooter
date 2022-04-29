@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CannonRotateOnTouch : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class CannonRotateOnTouch : MonoBehaviour
     void Start()
     {
         boxCollider = GetComponent<BoxCollider>();
+        SceneManager.LoadScene("Background", LoadSceneMode.Additive);
     }
 
     // Update is called once per frame

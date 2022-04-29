@@ -184,7 +184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8025796081159100922, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
       propertyPath: m_Name
-      value: Cannon (1)
+      value: DragToShootCannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025796081159100922, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
@@ -376,7 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 1771099607}
   ballPrefab: {fileID: 7657913754731731651, guid: 01a151408a39f85478790368dcddebc0, type: 3}
-  shootForce: 0
+  shootForceMultiplier: 2
   rotationSpeed: 0
   offset: 90
 --- !u!1 &1012509895
@@ -626,7 +630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8025796081159100919, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.010078599
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8025796081159100919, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -662,7 +666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8025796081159100922, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
