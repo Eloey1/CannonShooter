@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Malin/ScenesMalin/Lvl1.unity
     guid: 032d60227fd63ee42b98846c47d09a77
   - enabled: 1
-    path: Assets/Scenes/Antonio/Antonio.unity
+    path: Assets/Scenes/Antonio/Level2.unity
     guid: e17b6683ac612da449645c6a7887f37d
   - enabled: 1
     path: Assets/Scenes/Emil/TestLevel1.unity
