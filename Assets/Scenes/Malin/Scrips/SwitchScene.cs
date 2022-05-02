@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SwitchScene : MonoBehaviour
+public class SwitchScene : MonoBehaviour //Malin
 {
-    [SerializeField] int specificScene;
-    public void AddBackground() //Malin
+    public int specificScene;
+    public void AddBackground()
     {
         //SceneManager.LoadScene("TestBanor");
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -16,12 +16,16 @@ public class SwitchScene : MonoBehaviour
     {
         SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
     }
-    public void NextScene() //Malin
+    public void NextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void MainMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+    public void LoadScene()
+    {
+        SceneManager.LoadScene(specificScene);
     }
 }

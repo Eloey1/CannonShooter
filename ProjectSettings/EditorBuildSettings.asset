@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Malin/ScenesMalin/Background.unity
     guid: 94ae296753415b6479955e3b3f65d2fa
+  - enabled: 1
+    path: Assets/Scenes/Malin/ScenesMalin/Level Menu.unity
+    guid: 49c977f4d7f4ca54b8a4ef15b0559ba8
   m_configObjects: {}

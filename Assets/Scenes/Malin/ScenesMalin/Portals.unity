@@ -188,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8025796081159100922, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
@@ -380,6 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 1771099607}
   ballPrefab: {fileID: 7657913754731731651, guid: 01a151408a39f85478790368dcddebc0, type: 3}
+  circlePrefab: {fileID: 5784419191331130642, guid: 4d7c2bdceccfb6b4ca094549325c4a8a, type: 3}
   shootForceMultiplier: 2
   rotationSpeed: 0
   offset: 90
@@ -666,7 +667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8025796081159100922, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
