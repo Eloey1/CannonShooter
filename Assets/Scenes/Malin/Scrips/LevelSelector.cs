@@ -6,10 +6,10 @@ using TMPro;
 
 public class LevelSelector : MonoBehaviour
 {
-    [SerializeField] GameObject levelHolder;
-    [SerializeField] GameObject levelIcon;
+    [SerializeField] GameObject panel;
+    [SerializeField] GameObject button;
     [SerializeField] GameObject thisCanvas;
-    [SerializeField] int numberOfLevels = 50;
+    [SerializeField] int numberOfLevels = 5;
     [SerializeField] Vector2 iconSpacing;
     private Rect panelDimensions;
     private Rect iconDimensions;
@@ -18,8 +18,9 @@ public class LevelSelector : MonoBehaviour
 
     void Start()
     {
-        panelDimensions = levelHolder.GetComponent<RectTransform>().rect;
-        iconDimensions = levelIcon.GetComponent<RectTransform>().rect;
+        panelDimensions = panel.GetComponent<RectTransform>().rect;
+        iconDimensions = button.GetComponent<RectTransform>().rect;
+
         int maxInARow = Mathf.FloorToInt((panelDimensions.width + iconSpacing.x) / (iconDimensions.width + iconSpacing.x));
         int maxInACol = Mathf.FloorToInt((panelDimensions.height + iconSpacing.y) / (iconDimensions.height + iconSpacing.y));
         amountPerPage = maxInARow * maxInACol;
@@ -28,16 +29,16 @@ public class LevelSelector : MonoBehaviour
     }
     void LoadPanels(int numberOfPanels)
     {
-        GameObject panelClone = Instantiate(levelHolder) as GameObject;
-        PageSwiper swiper = levelHolder.AddComponent<PageSwiper>();
-        swiper.totalPages = numberOfPanels;
+        GameObject panelClone = Instantiate(panel) as GameObject;
+        PageSwiper panelSwiper = panel.AddComponent<PageSwiper>();
+        panelSwiper.totalPages = numberOfPanels;
 
         for (int i = 1; i <= numberOfPanels; i++)
         {
             GameObject panel = Instantiate(panelClone) as GameObject;
             panel.transform.SetParent(thisCanvas.transform, false);
-            panel.transform.SetParent(levelHolder.transform);
-            panel.name = "Page-" + i;
+            panel.transform.SetParent(panel.transform);
+            panel.name = "Page_" + i;
             panel.GetComponent<RectTransform>().localPosition = new Vector2(panelDimensions.width * (i - 1), 0);
             SetUpGrid(panel);
             int numberOfIcons = i == numberOfPanels ? numberOfLevels - currentLevelCount : amountPerPage;
@@ -57,20 +58,12 @@ public class LevelSelector : MonoBehaviour
         for (int i = 1; i <= numberOfIcons; i++)
         {
             currentLevelCount++;
-            GameObject icon = Instantiate(levelIcon) as GameObject;
+            GameObject icon = Instantiate(button) as GameObject;
             icon.transform.SetParent(thisCanvas.transform, false);
             icon.transform.SetParent(parentObject.transform);
             icon.name = "Level " + i;
             icon.GetComponentInChildren<TextMeshProUGUI>().SetText("Level " + currentLevelCount);
-            //icon.GetComponent<Button>().onClick.AddListener(SwitchScene.);
             icon.GetComponent<SwitchScene>().specificScene = i;
         }
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
