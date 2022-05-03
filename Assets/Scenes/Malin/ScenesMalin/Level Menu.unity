@@ -461,8 +461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23592f23c1084444a7f147277c98ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelHolder: {fileID: 1696766623}
-  levelIcon: {fileID: 7917749341876833300, guid: 150b761dea6ed254595a45a5c976b19a, type: 3}
+  panel: {fileID: 1696766623}
+  button: {fileID: 7917749341876833300, guid: 150b761dea6ed254595a45a5c976b19a, type: 3}
   thisCanvas: {fileID: 114742188}
   numberOfLevels: 5
   iconSpacing: {x: 50, y: 50}
@@ -854,7 +854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 0}
+  m_Color: {r: 0.1792453, g: 0.17315772, b: 0.17315772, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
