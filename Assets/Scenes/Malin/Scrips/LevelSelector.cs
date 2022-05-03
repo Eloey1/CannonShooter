@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class LevelSelector : MonoBehaviour
+public class LevelSelector : MonoBehaviour 
 {
     [SerializeField] GameObject panel;
     [SerializeField] GameObject button;
