@@ -491,8 +491,12 @@ PrefabInstance:
       value: Cannon
       objectReference: {fileID: 0}
     - target: {fileID: 8025796081159100923, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
-      propertyPath: shootForce
+      propertyPath: force
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025796081159100923, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
+      propertyPath: shootForce
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
@@ -637,3 +641,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd8e2bd4e63c5564680ee336c81b4b71, type: 3}
+--- !u!1 &1189030217 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8025796081159100922, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
+  m_PrefabInstance: {fileID: 632967668}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1189030218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189030217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a698ba0f40531e4b89000575e8d3777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dotPrefab: {fileID: 8850590496345437927, guid: 7305bbae5a2855b4e93b34bf29e77bf9, type: 3}
+  dots: []
+  numberOfDots: 30
+  distanceBtwDots: 0
+  force: 18
