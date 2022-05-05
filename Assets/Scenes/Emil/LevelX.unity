@@ -660,5 +660,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dotPrefab: {fileID: 8850590496345437927, guid: 7305bbae5a2855b4e93b34bf29e77bf9, type: 3}
   dots: []
-  numberOfDots: 10
+  numberOfDots: 30
   distanceBtwDots: 0.1
