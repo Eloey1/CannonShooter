@@ -380,10 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 1771099607}
   ballPrefab: {fileID: 7657913754731731651, guid: 01a151408a39f85478790368dcddebc0, type: 3}
-  circlePrefab: {fileID: 5784419191331130642, guid: 4d7c2bdceccfb6b4ca094549325c4a8a, type: 3}
   shootForceMultiplier: 2
-  rotationSpeed: 0
-  offset: 90
 --- !u!1 &1012509895
 GameObject:
   m_ObjectHideFlags: 0

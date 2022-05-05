@@ -9,17 +9,16 @@ public class DragToShoot : MonoBehaviour
 {
     [Header("Shooting the Ball")]
     [SerializeField] Transform shootPoint;
-    [SerializeField] GameObject ballPrefab, circlePrefab;
+    [SerializeField] GameObject ballPrefab;
     [SerializeField] float shootForceMultiplier;
     private float shootForce; //Sätt ett maxvärde på shooForce (kanske get; set;)
     private BoxCollider boxCollider;
-    [SerializeField] float rotationSpeed;
-    [SerializeField] float offset = 90;
     private float angle;
     private Touch touch;
 
     private Vector3 touchPosition, shootPointPos;
-    private Quaternion shootPointRotation, cannonRotation;
+    private Vector2 faceDirection, cannonPos;
+    private Quaternion shootPointRotation;
 
     private bool shoot = false, threadActive = false;
 
@@ -30,9 +29,9 @@ public class DragToShoot : MonoBehaviour
         boxCollider = GetComponent<BoxCollider>();
         shootPointPos = shootPoint.position;
         shootPointPos.z = -1;
+        cannonPos = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.touchCount > 0)
@@ -47,23 +46,14 @@ public class DragToShoot : MonoBehaviour
 
             shootPointRotation = shootPoint.rotation;
 
-            if (touch.phase == TouchPhase.Began)
-            {
-                circleList.Add(Instantiate(circlePrefab, shootPointPos - touchPosition, shootPointRotation));
-            }
-
-            if (boxCollider.bounds.Contains(touchPosition))
+            if (boxCollider.bounds.Contains(touchPosition) && !threadActive)
             {
                 ThreadStart ts = new ThreadStart(CalculateShootForce);
                 Thread thread = new Thread(ts);
                 thread.Start();
             }
-            transform.rotation = cannonRotation;
 
-            if (threadActive)
-            {
-                Indicator();
-            }
+            transform.up = -faceDirection;
         }
 
         if(Input.touchCount == 0)
@@ -78,24 +68,6 @@ public class DragToShoot : MonoBehaviour
         {
             Shoot(shootForce);
         }
-    }
-    void Indicator()
-    {
-        ///Skapa linjen för hur bollen skjuts
-        ///Kanske skapa en boll i kanonens riktning med avstånd genom shootForce?
-        ///
-        //if(touch.phase == TouchPhase.Began)
-        //{
-        //    circleList.Add(Instantiate(circlePrefab, shootPointPos - touchPosition, shootPointRotation));
-        //}
-
-        for (int i = 0; i < circleList.Count; i++)
-        {
-            circleList[i].transform.position = boxCollider.center - touchPosition;
-        }
-
-        
-
     }
 
     void CalculateShootForce()
@@ -124,17 +96,8 @@ public class DragToShoot : MonoBehaviour
         ballRb.AddForce(shootPoint.up * shootForce, ForceMode2D.Impulse);
         shoot = false;
     }
-    //void CannonRotation(Vector3 touchPos)
-    //{
-    //    //Uträkning för riktningen mellan kanonens position och fingrets position.
-    //    Vector2 weaponDir = touchPos - transform.position;
-    //    angle = Mathf.Atan2(weaponDir.y, weaponDir.x) * Mathf.Rad2Deg + offset;
-    //    transform.rotation = Quaternion.Euler(0, 0, angle);
-    //}
     void CannonRotation()
     {
-        //Uträkning för riktningen mellan kanonens position och fingrets position.
-        angle = Mathf.Atan2(touchPosition.y, touchPosition.x) * Mathf.Rad2Deg + offset;
-        cannonRotation = Quaternion.Euler(0, 0, angle);
+        faceDirection = (Vector2)touchPosition - cannonPos;
     }
 }

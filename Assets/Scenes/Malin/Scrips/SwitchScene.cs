@@ -15,10 +15,12 @@ public class SwitchScene : MonoBehaviour //Malin
     public void AddPauseMenu()
     {
         SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
+        Time.timeScale = 0;
     }
     public void NextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Time.timeScale = 1;
     }
     public void MainMenu()
     {
@@ -27,5 +29,10 @@ public class SwitchScene : MonoBehaviour //Malin
     public void LoadScene()
     {
         SceneManager.LoadScene(specificScene);
+    }
+    public void RemovePauseScene()
+    {
+        SceneManager.UnloadScene("PauseMenu");
+        Time.timeScale = 1;
     }
 }
