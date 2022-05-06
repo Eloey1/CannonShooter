@@ -11,7 +11,26 @@ public class DragToShoot : MonoBehaviour
     [SerializeField] Transform shootPoint;
     [SerializeField] GameObject ballPrefab;
     [SerializeField] float shootForceMultiplier;
-    private float shootForce; //Sätt ett maxvärde på shooForce (kanske get; set;)
+    [SerializeField] float maxShootForce;
+    [SerializeField] float minShootForce;
+    private float shootForce;
+    public float ShootForce
+    {
+        get { return shootForce; }
+        set
+        {
+            if (value >= maxShootForce)
+            {
+                value = maxShootForce;
+            }
+            if (value <= minShootForce)
+            {
+                value = minShootForce;
+            }
+
+            shootForce = value;
+        }
+    }//Sätt ett maxvärde på shooForce (kanske get; set;)
     private BoxCollider boxCollider;
     private float angle;
     private Touch touch;
@@ -39,7 +58,7 @@ public class DragToShoot : MonoBehaviour
             touch = Input.GetTouch(0);
 
             touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-            touchPosition.z = -1f;
+            touchPosition.z = transform.position.z;
 
             shootPointPos = shootPoint.position;
             shootPointPos.z = -1;
@@ -56,9 +75,9 @@ public class DragToShoot : MonoBehaviour
             transform.up = -faceDirection;
         }
 
-        if(Input.touchCount == 0)
+        if (Input.touchCount == 0)
         {
-            foreach(GameObject g in circleList)
+            foreach (GameObject g in circleList)
             {
                 Destroy(g);
             }
@@ -66,18 +85,18 @@ public class DragToShoot : MonoBehaviour
 
         if (shoot)
         {
-            Shoot(shootForce);
+            Shoot(ShootForce);
         }
     }
 
     void CalculateShootForce()
     {
-        while(touch.phase != TouchPhase.Ended)
+        while (touch.phase != TouchPhase.Ended)
         {
             threadActive = true;
             //Avståndsformeln mellan kanonens position och fingrets position
-            shootForce = Vector3.Distance(shootPointPos, touchPosition) * shootForceMultiplier;
-            Console.WriteLine(shootForce);
+            ShootForce = Vector3.Distance(shootPointPos, touchPosition) * shootForceMultiplier;
+            Console.WriteLine(ShootForce);
 
             CannonRotation();
         }
