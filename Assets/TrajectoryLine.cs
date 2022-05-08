@@ -21,7 +21,7 @@ public class TrajectoryLine : MonoBehaviour
 
         for (int i = 0; i < dots.Length; i++)
         {
-            dots[i] = Instantiate(dotPrefab, transform.position, transform.rotation);
+            dots[i] = Instantiate(dotPrefab, new Vector3(transform.position.x, transform.position.y, 1), transform.rotation);
         }
     }
     
