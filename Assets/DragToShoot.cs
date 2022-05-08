@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
 using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 public class DragToShoot : MonoBehaviour
 {
@@ -45,6 +46,8 @@ public class DragToShoot : MonoBehaviour
 
     void Start()
     {
+        SceneManager.LoadScene("Background", LoadSceneMode.Additive);
+
         boxCollider = GetComponent<BoxCollider>();
         shootPointPos = shootPoint.position;
         shootPointPos.z = -1;
