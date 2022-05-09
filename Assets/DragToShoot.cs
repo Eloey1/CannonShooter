@@ -14,7 +14,7 @@ public class DragToShoot : MonoBehaviour
     [SerializeField] float shootForceMultiplier;
     [SerializeField] float maxShootForce;
     [SerializeField] float minShootForce;
-    private float shootForce;
+    private float shootForce = CannonStats.Instance.shootForce;
     public float ShootForce
     {
         get { return shootForce; }
@@ -37,7 +37,7 @@ public class DragToShoot : MonoBehaviour
     private Touch touch;
 
     private Vector3 touchPosition, shootPointPos;
-    private Vector2 faceDirection, cannonPos;
+    private Vector2 faceDirection = CannonStats.Instance.rotation, cannonPos;
     private Quaternion shootPointRotation;
 
     private bool shoot = false, threadActive = false;
@@ -76,14 +76,7 @@ public class DragToShoot : MonoBehaviour
             }
 
             transform.up = -faceDirection;
-        }
-
-        if (Input.touchCount == 0)
-        {
-            foreach (GameObject g in circleList)
-            {
-                Destroy(g);
-            }
+            CannonStats.Instance.shootForce = ShootForce;
         }
 
         if (shoot)

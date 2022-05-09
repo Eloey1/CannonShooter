@@ -12,23 +12,27 @@ public class TrajectoryLine : MonoBehaviour
 
     [SerializeField] private int numberOfDots;
     [SerializeField] private float distanceBtwDots = 0.1f;
-    private float force;
+    private float force = CannonStats.Instance.shootForce;
 
     void Start()
     {
         dots = new GameObject[numberOfDots];
-        force = FindObjectOfType<CannonShoot>().shootForce;
+        //force = FindObjectOfType<CannonShoot>().shootForce;
 
         for (int i = 0; i < dots.Length; i++)
         {
-            dots[i] = Instantiate(dotPrefab, new Vector3(transform.position.x, transform.position.y, 1), transform.rotation);
+            //dots[i] = Instantiate(dotPrefab, new Vector3(transform.position.x, transform.position.y, -2), transform.rotation);
+            dots[i] = Instantiate(dotPrefab, new Vector3(transform.position.x, transform.position.y, -2), transform.rotation);
+
         }
     }
     
     void Update()
     {
+        //force = CannonStats.Instance.shootForce;
+
         Direction();
-        FaceMouse();
+        //FaceMouse();
 
         for (int i = 0; i < dots.Length; i++)
         {
@@ -46,7 +50,8 @@ public class TrajectoryLine : MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 cannonPos = transform.position;
 
-        direction = mousePos - cannonPos;
+        // = mousePos - cannonPos;
+        direction = CannonStats.Instance.rotation;
     }
 
     Vector2 DotPosition(float time)
