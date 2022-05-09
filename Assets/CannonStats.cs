@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CannonStats : MonoBehaviour
 {
-    public static CannonStats Instance { get; set; }
+    public static CannonStats Instance { get; set; } = new CannonStats();
 
     private void Awake()
     {
