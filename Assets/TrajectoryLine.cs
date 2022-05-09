@@ -12,7 +12,7 @@ public class TrajectoryLine : MonoBehaviour
 
     [SerializeField] private int numberOfDots;
     [SerializeField] private float distanceBtwDots = 0.1f;
-    private float force = CannonStats.Instance.shootForce;
+    private float force;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class TrajectoryLine : MonoBehaviour
     
     void Update()
     {
-        //force = CannonStats.Instance.shootForce;
+        force = CannonStats.Instance.shootForce;
 
         Direction();
         //FaceMouse();
@@ -38,6 +38,7 @@ public class TrajectoryLine : MonoBehaviour
         {
             dots[i].transform.position = DotPosition(i * distanceBtwDots);
         }
+
     }
 
     void FaceMouse()
