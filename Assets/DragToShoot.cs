@@ -13,8 +13,8 @@ public class DragToShoot : MonoBehaviour
     [SerializeField] Transform shootPoint;
     [SerializeField] GameObject ballPrefab;
     [SerializeField] float shootForceMultiplier = 2;
-    [SerializeField] float maxShootForce;
-    [SerializeField] float minShootForce;
+    [SerializeField] float maxShootForce = 15;
+    [SerializeField] float minShootForce = 3;
     //private float shootForce = CannonStats.Instance.shootForce;
     //public float ShootForce
     //{
@@ -36,6 +36,7 @@ public class DragToShoot : MonoBehaviour
     private BoxCollider boxCollider;
     private float angle;
     private Touch touch;
+    bool mouseClicked;
 
     private Vector3 touchPosition, shootPointPos, mousePosition;
     private Vector2 faceDirection, cannonPos;
@@ -58,8 +59,13 @@ public class DragToShoot : MonoBehaviour
     void Update()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (Input.GetMouseButtonUp(0))
+        {
+            mouseClicked = false;
+        }
         if (Input.GetMouseButton(0))
         {
+            mouseClicked = Input.GetMouseButton(0);
             Debug.Log("funkar2");
             mousePosition.z = transform.position.z;
 
@@ -94,7 +100,7 @@ public class DragToShoot : MonoBehaviour
                 thread.Start();
             }
 
-            transform.up = -faceDirection;
+            transform.up = -CannonStats.Instance.rotation;
             //CannonStats.Instance.shootForce = ShootForce;
         }
 
@@ -107,7 +113,7 @@ public class DragToShoot : MonoBehaviour
 
     void CalculateShootForce()
     {
-        while (touch.phase != TouchPhase.Ended || Input.GetMouseButton(0))
+        while (touch.phase != TouchPhase.Ended || mouseClicked)
         {
             threadActive = true;
             //Avståndsformeln mellan kanonens position och fingrets position
@@ -118,7 +124,7 @@ public class DragToShoot : MonoBehaviour
             CannonRotation();
         }
 
-        if (touch.phase == TouchPhase.Ended || Input.GetMouseButtonUp(0))
+        if (touch.phase == TouchPhase.Ended || mouseClicked)
         {
             shoot = true;
             threadActive = false;

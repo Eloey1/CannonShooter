@@ -26,6 +26,10 @@ public class SwitchScene : MonoBehaviour //Malin
     {
         SceneManager.LoadScene("Menu");
     }
+    public void LevelMenu()
+    {
+        SceneManager.LoadScene("LevelMenu");
+    }
     public void LoadScene()
     {
         SceneManager.LoadScene(specificScene);

@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dotPrefab: {fileID: 8850590496345437927, guid: 7305bbae5a2855b4e93b34bf29e77bf9, type: 3}
   dots: []
-  numberOfDots: 5
+  numberOfDots: 15
   distanceBtwDots: 0.1
 --- !u!114 &7261028761428237426
 MonoBehaviour:
@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootForce: 0
+  rotation: {x: 0, y: 0}
 --- !u!1 &8025796081422556457
 GameObject:
   m_ObjectHideFlags: 0
