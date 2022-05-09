@@ -5,8 +5,8 @@ using UnityEngine.EventSystems;
 
 public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler //Kan man använda det här för DragToShoot??? 
 {
-    [SerializeField] float percentThreshold = 0.2f;
-    [SerializeField] float easing = 0.5f;
+    public float percentThreshold = 0.2f;
+    public float easing = 0.5f;
     public int totalPages = 1;
 
     private Vector3 panelLocation;

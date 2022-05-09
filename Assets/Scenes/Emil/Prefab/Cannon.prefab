@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3182639719700918471}
   - component: {fileID: -1620512858008159977}
   - component: {fileID: -3559749418757333500}
+  - component: {fileID: 1189030218}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -161,6 +162,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0
   offset: -90
+--- !u!114 &1189030218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8025796081159100922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a698ba0f40531e4b89000575e8d3777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dotPrefab: {fileID: 8850590496345437927, guid: 7305bbae5a2855b4e93b34bf29e77bf9, type: 3}
+  dots: []
+  numberOfDots: 30
+  distanceBtwDots: 0.1
 --- !u!1 &8025796081422556457
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,6 +29,7 @@ public class Teleport : MonoBehaviour
             if (changeDirection) //Skulle kunna ha en riktningskänslig variabel.
             {
                 //Ändrar bollens riktning i x-led.
+                //Rotation?
             }
             
 

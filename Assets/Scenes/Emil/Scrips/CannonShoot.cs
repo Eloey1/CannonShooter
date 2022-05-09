@@ -7,8 +7,8 @@ public class CannonShoot : MonoBehaviour
     [Header("Shooting the Ball")]
     [SerializeField]Transform shootPoint;
     [SerializeField]GameObject ballPrefab;
-    [SerializeField] float shootForce;
-    
+    [SerializeField]public float shootForce;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -21,6 +21,7 @@ public class CannonShoot : MonoBehaviour
     {
         GameObject ball = Instantiate(ballPrefab, shootPoint.position, shootPoint.rotation);
         Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D>();
-        ballRb.AddForce(shootPoint.up * shootForce, ForceMode2D.Impulse);
+        //ballRb.AddForce(shootPoint.up * shootForce, ForceMode2D.Impulse);
+        ballRb.velocity = transform.up * shootForce;
     }
 }
