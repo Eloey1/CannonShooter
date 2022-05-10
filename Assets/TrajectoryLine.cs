@@ -10,7 +10,7 @@ public class TrajectoryLine : MonoBehaviour
 
     [SerializeField] private int numberOfDots;
     [SerializeField] private float distanceBtwDots = 0.1f;
-    [SerializeField] private float dotZPos; 
+    private float dotZPos; 
 
     void Start()
     {
@@ -18,9 +18,7 @@ public class TrajectoryLine : MonoBehaviour
 
         for (int i = 0; i < dots.Length; i++)
         {
-            //dots[i] = Instantiate(dotPrefab, new Vector3(transform.position.x, transform.position.y, -2), transform.rotation);
             dots[i] = Instantiate(dotPrefab, new Vector3(transform.position.x, transform.position.y, dotZPos), transform.rotation);
-
         }
     }
     
@@ -45,10 +43,10 @@ public class TrajectoryLine : MonoBehaviour
         }
     }
 
-    void FaceMouse()
-    {
-        transform.up = -CannonStats.Instance.rotation;
-    }
+    //void FaceMouse()
+    //{
+    //    transform.up = -CannonStats.Instance.rotation;
+    //}
 
     void Direction()
     {
