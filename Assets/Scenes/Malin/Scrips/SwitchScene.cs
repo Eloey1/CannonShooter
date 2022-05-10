@@ -8,12 +8,26 @@ public class SwitchScene : MonoBehaviour //Malin
     public int specificScene;
     public void AddBackground()
     {
-        //SceneManager.LoadScene("TestBanor");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            if (SceneManager.GetSceneByName("Background").isLoaded)
+            {
+                return;
+            }
+        }
+
         SceneManager.LoadScene("Background", LoadSceneMode.Additive);
     }
     public void AddPauseMenu()
     {
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            if (SceneManager.GetSceneByName("PauseMenu").isLoaded || SceneManager.GetSceneByName("BetweenLevels").isLoaded)
+            {
+                return;
+            }
+        }
+        
         SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
         Time.timeScale = 0;
     }
@@ -25,6 +39,12 @@ public class SwitchScene : MonoBehaviour //Malin
     public void MainMenu()
     {
         SceneManager.LoadScene("Menu");
+        Time.timeScale = 1;
+    }
+    public void LevelMenu()
+    {
+        SceneManager.LoadScene("Level Menu");
+        Time.timeScale = 1;
     }
     public void LoadScene()
     {
@@ -32,7 +52,7 @@ public class SwitchScene : MonoBehaviour //Malin
     }
     public void RemovePauseScene()
     {
-        SceneManager.UnloadScene("PauseMenu");
+        SceneManager.UnloadSceneAsync("PauseMenu");
         Time.timeScale = 1;
     }
     public void TimeOn()

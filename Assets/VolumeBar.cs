@@ -10,6 +10,7 @@ public class VolumeBar : MonoBehaviour
     private void OnEnable()
     {
         slider.onValueChanged.AddListener(OnSliderValueChanged);
+        slider.value = AudioManager.instance.GetComponent<AudioSource>().volume; //Varför fel???
     }
 
     private void OnDisable()

@@ -489,7 +489,7 @@ MonoBehaviour:
   panel: {fileID: 1696766623}
   button: {fileID: 7917749341876833300, guid: 150b761dea6ed254595a45a5c976b19a, type: 3}
   thisCanvas: {fileID: 114742188}
-  numberOfLevels: 5
+  numberOfLevels: 7
   iconSpacing: {x: 50, y: 50}
 --- !u!1 &1140264665
 GameObject:
