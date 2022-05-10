@@ -56,6 +56,12 @@ public class DragToShoot : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("RestartMenu", LoadSceneMode.Additive);
+            Time.timeScale = 0;
+        }
+
         if (Input.GetMouseButtonUp(0))
         {
             mouseClicked = false;

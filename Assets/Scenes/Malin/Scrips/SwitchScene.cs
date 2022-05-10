@@ -55,6 +55,11 @@ public class SwitchScene : MonoBehaviour //Malin
         SceneManager.UnloadSceneAsync("PauseMenu");
         Time.timeScale = 1;
     }
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
+    }
     public void TimeOn()
     {
         Time.timeScale = 1;
