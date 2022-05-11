@@ -5,46 +5,48 @@ using UnityEngine;
 
 public class TrajectoryLine : MonoBehaviour
 {
-    //private Vector2 direction;
-
     [SerializeField] private GameObject dotPrefab;
     [SerializeField] private GameObject[] dots;
 
     [SerializeField] private int numberOfDots;
     [SerializeField] private float distanceBtwDots = 0.1f;
-    //private float force;
+    private float dotZPos; 
 
     void Start()
     {
         dots = new GameObject[numberOfDots];
-        //force = FindObjectOfType<CannonShoot>().shootForce;
 
         for (int i = 0; i < dots.Length; i++)
         {
-            //dots[i] = Instantiate(dotPrefab, new Vector3(transform.position.x, transform.position.y, -2), transform.rotation);
-            dots[i] = Instantiate(dotPrefab, new Vector3(transform.position.x, transform.position.y, -2), transform.rotation);
-
+            dots[i] = Instantiate(dotPrefab, new Vector3(transform.position.x, transform.position.y, dotZPos), transform.rotation);
         }
     }
     
     void Update()
     {
-        //force = CannonStats.Instance.shootForce;
-
         Direction();
         //FaceMouse();
 
-        for (int i = 0; i < dots.Length; i++)
+        if (CannonStats.Instance.shootForce != 0)
         {
-            dots[i].transform.position = DotPosition(i * distanceBtwDots);
+            for (int i = 0; i < dots.Length; i++)
+            {
+                dots[i].transform.position = DotPosition(i * distanceBtwDots);
+            }
         }
-
+        else
+        {
+            for (int i = 0; i < dots.Length; i++)
+            {
+                dots[i].transform.position = new Vector3(transform.position.x, transform.position.y, dotZPos);
+            }
+        }
     }
 
-    void FaceMouse()
-    {
-        transform.up = -CannonStats.Instance.rotation;
-    }
+    //void FaceMouse()
+    //{
+    //    transform.up = -CannonStats.Instance.rotation;
+    //}
 
     void Direction()
     {
@@ -52,7 +54,6 @@ public class TrajectoryLine : MonoBehaviour
         Vector2 cannonPos = transform.position;
 
         CannonStats.Instance.rotation = mousePos - cannonPos;
-        //direction = CannonStats.Instance.rotation;
     }
 
     Vector2 DotPosition(float time)

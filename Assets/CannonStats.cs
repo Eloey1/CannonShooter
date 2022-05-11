@@ -20,4 +20,6 @@ public class CannonStats : MonoBehaviour
 
     public float shootForce;
     public Vector2 rotation;
+    public bool lose = false;
+    public int ballAmount;
 }

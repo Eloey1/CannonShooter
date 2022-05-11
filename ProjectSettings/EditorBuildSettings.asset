@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Malin/ScenesMalin/Menu.unity
+    path: Assets/Scenes/Menyer/Menu.unity
     guid: 1e7b6e0a25aaf8842b21030b2386dcf6
   - enabled: 1
     path: "Assets/Scenes/Fa\u0308rdiga levlar/M_Lvl1.unity"
@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Malin/ScenesMalin/BetweenLevels.unity
     guid: 52c2cf282e365c049ae2450ccb958c5a
+  - enabled: 1
+    path: Assets/Scenes/Malin/ScenesMalin/RestartMenu.unity
+    guid: b453f01c12dab24479d8bdac06a1d128
   m_configObjects: {}
