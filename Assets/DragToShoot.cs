@@ -56,6 +56,12 @@ public class DragToShoot : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("RestartMenu", LoadSceneMode.Additive);
+            Time.timeScale = 0;
+        }
+
         if (Input.GetMouseButtonUp(0))
         {
             mouseClicked = false;
@@ -68,9 +74,11 @@ public class DragToShoot : MonoBehaviour
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = transform.position.z;
 
-            if (boxCollider.bounds.Contains(mousePosition) && !threadActive)
+            shootPointPos = shootPoint.position;
+            shootPointPos.z = -1;
+
+            if (Input.GetMouseButtonDown(0) && boxCollider.bounds.Contains(mousePosition) && !threadActive)
             {
-                //Debug.Log("funkar");
                 ThreadStart ts = new ThreadStart(CalculateShootForceMouse);
                 Thread thread = new Thread(ts);
                 thread.Start();
@@ -92,7 +100,7 @@ public class DragToShoot : MonoBehaviour
 
             shootPointRotation = shootPoint.rotation;
 
-            if (boxCollider.bounds.Contains(touchPosition) && !threadActive)
+            if (touch.phase == TouchPhase.Began && boxCollider.bounds.Contains(touchPosition) && !threadActive)
             {
                 ThreadStart ts = new ThreadStart(CalculateShootForce);
                 Thread thread = new Thread(ts);
