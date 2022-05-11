@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Malin/ScenesMalin/Menu.unity
+    path: Assets/Scenes/Menyer/Menu.unity
     guid: 1e7b6e0a25aaf8842b21030b2386dcf6
   - enabled: 1
     path: "Assets/Scenes/F\xE4rdiga levlar/M_Lvl1.unity"

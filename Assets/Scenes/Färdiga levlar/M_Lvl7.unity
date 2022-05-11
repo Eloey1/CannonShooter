@@ -515,6 +515,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7877336202199754477, guid: 61bef9f397e08554aba52b1341fc179b, type: 3}
+      propertyPath: changeDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877336202199754477, guid: 61bef9f397e08554aba52b1341fc179b, type: 3}
       propertyPath: connectedPortal
       value: 
       objectReference: {fileID: 1012509895}
