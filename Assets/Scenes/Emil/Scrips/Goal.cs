@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-    [SerializeField] bool goal = false; 
+    //[SerializeField] bool goal = false; 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,7 +16,7 @@ public class Goal : MonoBehaviour
             SceneManager.LoadScene("BetweenLevels", LoadSceneMode.Additive);
             Time.timeScale = 0;
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Additive);
-            goal = true;
+            //goal = true;
         }
     }
 }

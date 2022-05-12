@@ -53,7 +53,10 @@ public class TrajectoryLine : MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 cannonPos = transform.position;
 
-        CannonStats.Instance.rotation = mousePos - cannonPos;
+        if (Input.GetMouseButton(0))
+        {
+            CannonStats.Instance.rotation = mousePos - cannonPos;
+        }
     }
 
     Vector2 DotPosition(float time)
