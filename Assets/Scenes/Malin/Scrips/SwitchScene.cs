@@ -68,4 +68,8 @@ public class SwitchScene : MonoBehaviour //Malin
     {
         Time.timeScale = 0;
     }
+    public void ExitApplication()
+    {
+        Application.Quit();
+    }
 }
