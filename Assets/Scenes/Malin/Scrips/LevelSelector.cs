@@ -62,7 +62,12 @@ public class LevelSelector : MonoBehaviour
             icon.transform.SetParent(thisCanvas.transform, false);
             icon.transform.SetParent(parentObject.transform);
             icon.name = "Level " + i;
-            icon.GetComponentInChildren<TextMeshProUGUI>().SetText("Level " + currentLevelCount);
+
+            for (int j = 0; j < icon.GetComponentsInChildren<TextMeshProUGUI>().Length; j++)
+            {
+                icon.GetComponentsInChildren<TextMeshProUGUI>()[j].SetText("Level " + currentLevelCount);
+            }
+
             icon.GetComponent<SwitchScene>().specificScene = i;
         }
     }
