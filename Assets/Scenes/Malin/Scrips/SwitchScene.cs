@@ -71,5 +71,6 @@ public class SwitchScene : MonoBehaviour //Malin
     public void ExitApplication()
     {
         Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }
