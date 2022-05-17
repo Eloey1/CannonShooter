@@ -489,7 +489,7 @@ MonoBehaviour:
   panel: {fileID: 1696766623}
   button: {fileID: 7917749341876833300, guid: 150b761dea6ed254595a45a5c976b19a, type: 3}
   thisCanvas: {fileID: 114742188}
-  numberOfLevels: 7
+  numberOfLevels: 20
   iconSpacing: {x: 50, y: 50}
 --- !u!1 &1140264665
 GameObject:
@@ -743,16 +743,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.25046346, g: 0.2735849, b: 0.24622642, a: 0}
+  m_Material: {fileID: 2504691564010856152, guid: 1dfb3a71063be554a9233fd3a10ca8c7, type: 2}
+  m_Color: {r: 0.9294118, g: 0.6901961, b: 0.40000004, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 2b0aaf7da495a3f47a939cb65b130674, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
