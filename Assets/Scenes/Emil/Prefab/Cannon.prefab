@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8025796081159100919}
   - component: {fileID: 8025796081159100920}
-  - component: {fileID: 8025796081159100923}
   - component: {fileID: 3182639719700918471}
   - component: {fileID: 1189030218}
   - component: {fileID: 7261028761428237426}
   - component: {fileID: 6594296411948604621}
+  - component: {fileID: -852374545237457214}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -51,21 +51,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4511316, y: 2.4797115, z: 1}
   m_Center: {x: 0.0090225935, y: -0.036090374, z: 0}
---- !u!114 &8025796081159100923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8025796081159100922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01edd90eae494684c8fdd3bc49afccb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootPoint: {fileID: 8025796081422556454}
-  ballPrefab: {fileID: 7657913754731731651, guid: 01a151408a39f85478790368dcddebc0, type: 3}
-  shootForce: 12
 --- !u!212 &3182639719700918471
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -165,6 +150,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootForce: 0
   rotation: {x: 0, y: 0}
+  lose: 0
+  ballAmount: 0
+  ball: {fileID: 0}
+  ballRb: {fileID: 0}
+--- !u!114 &-852374545237457214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8025796081159100922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72f476d06a6c4924887ded180884c19f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountOfBalls: 2
+  maxWidth: 10
+  maxHeight: 20
 --- !u!1 &8025796081422556457
 GameObject:
   m_ObjectHideFlags: 0

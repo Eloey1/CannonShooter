@@ -22,4 +22,7 @@ public class CannonStats : MonoBehaviour
     public Vector2 rotation;
     public bool lose = false;
     public int ballAmount;
+    public GameObject ball;
+    public Rigidbody2D ballRb;
+    //public SpriteRenderer ballInView;
 }
