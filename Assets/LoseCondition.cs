@@ -8,6 +8,7 @@ public class LoseCondition : MonoBehaviour
     [SerializeField] private int amountOfBalls;
     [SerializeField] private float maxWidth = 10;
     [SerializeField] private float maxHeight = 20;
+    [SerializeField] private float timeValue = 5;
     
     private Vector2 ballPos;
     private bool inCamera = true;
@@ -21,13 +22,14 @@ public class LoseCondition : MonoBehaviour
     void Update()
     {
         CheckBounds();
+        TimerAfterLastBall();
 
         // måste göra ett nytt condition där vi förlorar när bollen står still.
         
         if (CannonStats.Instance.ballAmount == 0 && !inCamera)
         {
             CannonStats.Instance.lose = true;
-            Debug.Log("You Lost!!!!!!!");
+            Debug.Log("You Lost!");
         }
 
         //Debug.Log("inCamera: " + inCamera);
@@ -55,6 +57,24 @@ public class LoseCondition : MonoBehaviour
             {
                 inCamera = true;
             }
+        }
+    }
+
+    void TimerAfterLastBall()
+    {
+        if (CannonStats.Instance.ball != null)
+        {
+            if (CannonStats.Instance.ballAmount == 0)
+            {
+                timeValue -= Time.deltaTime;
+                
+                if (timeValue <= 0)
+                {
+                    CannonStats.Instance.lose = true;
+                    Debug.Log("Time is out, you lost!");
+                }
+            }
+            
         }
     }
 }

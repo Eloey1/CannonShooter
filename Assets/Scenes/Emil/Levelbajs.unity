@@ -123,26 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &53901258 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8025796081159100922, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
-  m_PrefabInstance: {fileID: 719431328}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &53901266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53901258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72f476d06a6c4924887ded180884c19f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amountOfBalls: 3
-  maxWidth: 10
-  maxHeight: 20
 --- !u!1 &153888867
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +328,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -852374545237457214, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
+      propertyPath: timeValue
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7261028761428237426, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
       propertyPath: maxShootForce
       value: 20

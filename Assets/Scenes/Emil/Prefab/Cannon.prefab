@@ -169,6 +169,7 @@ MonoBehaviour:
   amountOfBalls: 2
   maxWidth: 10
   maxHeight: 20
+  timeValue: 10
 --- !u!1 &8025796081422556457
 GameObject:
   m_ObjectHideFlags: 0

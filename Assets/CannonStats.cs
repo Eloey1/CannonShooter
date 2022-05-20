@@ -24,5 +24,4 @@ public class CannonStats : MonoBehaviour
     public int ballAmount;
     public GameObject ball;
     public Rigidbody2D ballRb;
-    //public SpriteRenderer ballInView;
 }

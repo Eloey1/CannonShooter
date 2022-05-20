@@ -166,14 +166,13 @@ public class DragToShoot : MonoBehaviour
     void Shoot(float shootForce)
     {
         GameObject ball = Instantiate(ballPrefab, shootPointPos, shootPointRotation);
-        
         CannonStats.Instance.ball = ball;
-        //CannonStats.Instance.ballInView = ball.GetComponent<SpriteRenderer>();
+        
         CannonStats.Instance.ballAmount -= 1;
 
         Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D>();
-
         CannonStats.Instance.ballRb = ballRb;
+        
         ballRb.AddForce(shootPoint.up * shootForce, ForceMode2D.Impulse);
         shoot = false;
     }
