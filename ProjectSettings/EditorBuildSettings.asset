@@ -36,7 +36,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menyer/PauseMenu.unity
     guid: baa20caa63568c249a07cb0fe7db009b
   - enabled: 1
-    path: Assets/Scenes/Malin/ScenesMalin/Background.unity
+    path: Assets/Scenes/Menyer/Background.unity
     guid: 94ae296753415b6479955e3b3f65d2fa
   - enabled: 1
     path: Assets/Scenes/Menyer/Level Menu.unity
