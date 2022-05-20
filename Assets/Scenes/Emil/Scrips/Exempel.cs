@@ -16,7 +16,6 @@ public class Exempel : MonoBehaviour
     
     void Start()
     {
-        var noVar = 7.5;
         Comments();
     }
 

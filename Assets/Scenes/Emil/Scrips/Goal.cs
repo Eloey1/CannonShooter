@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-    [SerializeField] bool goal = false; 
+    //[SerializeField] bool goal = false;
+    [SerializeField] private GameObject particleEffect;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,8 +16,14 @@ public class Goal : MonoBehaviour
             Destroy(collision.gameObject);
             SceneManager.LoadScene("BetweenLevels", LoadSceneMode.Additive);
             Time.timeScale = 0;
+
+            if (particleEffect != null)
+            {
+                Instantiate(particleEffect, transform.position, transform.rotation);
+            }
+
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Additive);
-            goal = true;
+            //goal = true;
         }
     }
 }

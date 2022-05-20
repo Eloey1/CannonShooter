@@ -114,7 +114,10 @@ public class DragToShoot : MonoBehaviour
         if (shoot)
         {
             //Shoot(ShootForce);
-            Shoot(CannonStats.Instance.shootForce);
+            if (CannonStats.Instance.ballAmount != 0)
+            {
+                Shoot(CannonStats.Instance.shootForce);
+            }
         }
     }
 
@@ -163,7 +166,13 @@ public class DragToShoot : MonoBehaviour
     void Shoot(float shootForce)
     {
         GameObject ball = Instantiate(ballPrefab, shootPointPos, shootPointRotation);
+        CannonStats.Instance.ball = ball;
+        
+        CannonStats.Instance.ballAmount -= 1;
+
         Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D>();
+        CannonStats.Instance.ballRb = ballRb;
+        
         ballRb.AddForce(shootPoint.up * shootForce, ForceMode2D.Impulse);
         shoot = false;
     }
