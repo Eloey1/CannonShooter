@@ -30,8 +30,9 @@ public class LevelSelector : MonoBehaviour
     void LoadPanels(int numberOfPanels)
     {
         GameObject panelClone = Instantiate(panel) as GameObject;
-        PageSwiper panelSwiper = panel.AddComponent<PageSwiper>();
-        panelSwiper.totalPages = numberOfPanels;
+        //PageSwiper panelSwiper = panel.AddComponent<PageSwiper>();
+        //panelSwiper.totalPages = numberOfPanels;
+        panel.AddComponent<PageSwiper>();
 
         for (int i = 1; i <= numberOfPanels; i++)
         {
