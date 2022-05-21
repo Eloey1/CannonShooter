@@ -15,7 +15,9 @@ public class Goal : MonoBehaviour
             Debug.Log("GOAL!!!");
             Destroy(collision.gameObject);
             SceneManager.LoadScene("BetweenLevels", LoadSceneMode.Additive);
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
+
+            CannonStats.Instance.cannonActive = false;
 
             if (particleEffect != null)
             {

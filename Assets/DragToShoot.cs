@@ -52,10 +52,17 @@ public class DragToShoot : MonoBehaviour
         shootPointPos = shootPoint.position;
         shootPointPos.z = -1;
         cannonPos = transform.position;
+
+        CannonStats.Instance.cannonActive = true;
     }
 
     void Update()
     {
+        if (!CannonStats.Instance.cannonActive)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("RestartMenu", LoadSceneMode.Additive);

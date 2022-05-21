@@ -6,6 +6,13 @@ using UnityEngine.UI;
 
 public class CannonStats : MonoBehaviour
 {
+    public float shootForce;
+    public Vector2 rotation;
+    public bool lose = false, cannonActive;
+    public int ballAmount;
+    public GameObject ball;
+    public Rigidbody2D ballRb;
+
     public static CannonStats Instance { get; set; } = new CannonStats();
 
     private void Awake()
@@ -25,7 +32,8 @@ public class CannonStats : MonoBehaviour
         if (CannonStats.Instance.lose && !SceneManager.GetSceneByName("RestartMenu").isLoaded)
         {
             SceneManager.LoadScene("RestartMenu", LoadSceneMode.Additive); //Tar upp restart-menyn
-            Time.timeScale = 0; //Pausar tiden
+            //Time.timeScale = 0; //Pausar tiden
+            CannonStats.Instance.cannonActive = false;
 
             if (SceneManager.GetSceneByName("Background").isLoaded)
             {
@@ -34,10 +42,4 @@ public class CannonStats : MonoBehaviour
         }
     }
 
-    public float shootForce;
-    public Vector2 rotation;
-    public bool lose = false;
-    public int ballAmount;
-    public GameObject ball;
-    public Rigidbody2D ballRb;
 }
