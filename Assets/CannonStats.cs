@@ -8,7 +8,7 @@ public class CannonStats : MonoBehaviour
 {
     public float shootForce;
     public Vector2 rotation;
-    public bool lose = false, cannonActive;
+    public bool lose = false, cannonActive, threadActive;
     public int ballAmount;
     public GameObject ball;
     public Rigidbody2D ballRb;

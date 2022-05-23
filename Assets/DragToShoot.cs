@@ -12,10 +12,12 @@ public class DragToShoot : MonoBehaviour
     [Header("Shooting the Ball")]
     [SerializeField] Transform shootPoint;
     [SerializeField] GameObject ballPrefab;
+    [SerializeField] GameObject fingerTex;
     [SerializeField] float shootForceMultiplier = 2;
     [SerializeField] float maxShootForce = 15;
     [SerializeField] float minShootForce = 3;
     private float shootForce = CannonStats.Instance.shootForce;
+    private float timeLeft = 5f;
     public float ShootForce
     {
         get { return shootForce; }
@@ -32,7 +34,7 @@ public class DragToShoot : MonoBehaviour
 
             shootForce = value;
         }
-    }//Sätt ett maxvärde på shooForce (kanske get; set;)
+    }
     private BoxCollider boxCollider;
     private float angle;
     private Touch touch;
@@ -54,10 +56,18 @@ public class DragToShoot : MonoBehaviour
         cannonPos = transform.position;
 
         CannonStats.Instance.cannonActive = true;
+
     }
 
     void Update()
     {
+        timeLeft -= Time.deltaTime;
+        if (timeLeft < 0)
+        {
+            Instantiate(fingerTex, new Vector3(cannonPos.x + 0.7f, cannonPos.y - 1f, -2), new Quaternion(0, 0, 0, 0));
+            timeLeft = 3f;
+        }
+
         if (!CannonStats.Instance.cannonActive)
         {
             return;
@@ -81,20 +91,26 @@ public class DragToShoot : MonoBehaviour
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = transform.position.z;
 
-            shootPointPos = shootPoint.position;
-            shootPointPos.z = -1;
-
             if (Input.GetMouseButtonDown(0) && boxCollider.bounds.Contains(mousePosition) && !threadActive)
             {
+                timeLeft = 15f;
+
                 ThreadStart ts = new ThreadStart(CalculateShootForceMouse);
                 Thread thread = new Thread(ts);
                 thread.Start();
             }
 
-            transform.up = -CannonStats.Instance.rotation;
-            CannonStats.Instance.shootForce = ShootForce;
+            if (threadActive)
+            {
+
+                shootPointPos = shootPoint.position;
+                shootPointPos.z = -1;
+
+                transform.up = -CannonStats.Instance.rotation;
+                CannonStats.Instance.shootForce = ShootForce;
+            }
         }
-        
+
         if (Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
@@ -102,25 +118,32 @@ public class DragToShoot : MonoBehaviour
             touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
             touchPosition.z = transform.position.z;
 
-            shootPointPos = shootPoint.position;
-            shootPointPos.z = -1;
-
-            shootPointRotation = shootPoint.rotation;
-
             if (touch.phase == TouchPhase.Began && boxCollider.bounds.Contains(touchPosition) && !threadActive)
             {
+                timeLeft = 15f;
+
                 ThreadStart ts = new ThreadStart(CalculateShootForce);
                 Thread thread = new Thread(ts);
                 thread.Start();
+
+                Debug.Log(thread.ToString());
             }
 
-            transform.up = -CannonStats.Instance.rotation;
-            CannonStats.Instance.shootForce = ShootForce;
+            if (threadActive)
+            {
+                shootPointPos = shootPoint.position;
+                shootPointPos.z = -1;
+
+                shootPointRotation = shootPoint.rotation;
+
+                transform.up = -CannonStats.Instance.rotation;
+                CannonStats.Instance.shootForce = ShootForce;
+            }
+
         }
 
         if (shoot)
         {
-            //Shoot(ShootForce);
             if (CannonStats.Instance.ballAmount != 0)
             {
                 Shoot(CannonStats.Instance.shootForce);
@@ -133,20 +156,15 @@ public class DragToShoot : MonoBehaviour
         while (mouseClicked)
         {
             threadActive = true;
-            //Avståndsformeln mellan kanonens position och fingrets position
-            //ShootForce = Vector3.Distance(shootPointPos, touchPosition) * shootForceMultiplier;
+            CannonStats.Instance.threadActive = true;
             ShootForce = Vector2.Distance(shootPointPos, mousePosition) * shootForceMultiplier;
-
-            //CannonStats.Instance.shootForce = Vector2.Distance(shootPointPos, mousePosition) * shootForceMultiplier;
 
             CannonRotation();
         }
 
-        //if (touch.phase == TouchPhase.Ended || !mouseClicked)
-        {
-            shoot = true;
-            threadActive = false;
-        }
+        shoot = true;
+        threadActive = false;
+        CannonStats.Instance.threadActive = false;
     }
 
     void CalculateShootForce()
@@ -154,32 +172,25 @@ public class DragToShoot : MonoBehaviour
         while (touch.phase != TouchPhase.Ended || mouseClicked)
         {
             threadActive = true;
-            //Avståndsformeln mellan kanonens position och fingrets position
-            //ShootForce = Vector3.Distance(shootPointPos, touchPosition) * shootForceMultiplier;
             ShootForce = Vector2.Distance(shootPointPos, mousePosition) * shootForceMultiplier;
-            //CannonStats.Instance.shootForce = Vector2.Distance(shootPointPos, mousePosition) * shootForceMultiplier;
-            //Console.WriteLine(ShootForce);
 
             CannonRotation();
         }
 
-        if (touch.phase == TouchPhase.Ended || !mouseClicked)
-        {
-            shoot = true;
-            threadActive = false;
-        }
+        shoot = true;
+        threadActive = false;
     }
 
     void Shoot(float shootForce)
     {
         GameObject ball = Instantiate(ballPrefab, shootPointPos, shootPointRotation);
         CannonStats.Instance.ball = ball;
-        
+
         CannonStats.Instance.ballAmount -= 1;
 
         Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D>();
         CannonStats.Instance.ballRb = ballRb;
-        
+
         ballRb.AddForce(shootPoint.up * shootForce, ForceMode2D.Impulse);
         shoot = false;
     }

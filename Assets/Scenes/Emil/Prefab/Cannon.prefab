@@ -133,6 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPoint: {fileID: 8025796081422556454}
   ballPrefab: {fileID: 7657913754731731651, guid: 01a151408a39f85478790368dcddebc0, type: 3}
+  fingerTex: {fileID: 2356186255994430050, guid: 09ae2f6cffa98de479dbd83d329511f5, type: 3}
   shootForceMultiplier: 2
   maxShootForce: 3
   minShootForce: 10
@@ -151,6 +152,7 @@ MonoBehaviour:
   shootForce: 0
   rotation: {x: 0, y: 0}
   lose: 0
+  cannonActive: 0
   ballAmount: 0
   ball: {fileID: 0}
   ballRb: {fileID: 0}

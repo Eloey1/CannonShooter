@@ -24,7 +24,7 @@ public class TrajectoryLine : MonoBehaviour
     
     void Update()
     {
-        if (!CannonStats.Instance.cannonActive)
+        if (!CannonStats.Instance.cannonActive || !CannonStats.Instance.threadActive)
         {
             return;
         }
