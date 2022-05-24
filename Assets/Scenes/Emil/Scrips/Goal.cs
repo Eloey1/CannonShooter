@@ -16,7 +16,7 @@ public class Goal : MonoBehaviour
             Destroy(collision.gameObject);
             SceneManager.LoadScene("BetweenLevels", LoadSceneMode.Additive);
             //Time.timeScale = 0;
-
+            CannonStats.Instance.win = true;
             CannonStats.Instance.cannonActive = false;
 
             if (particleEffect != null)
