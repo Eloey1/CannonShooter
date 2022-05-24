@@ -264,6 +264,10 @@ PrefabInstance:
       propertyPath: shootForce
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: -852374545237457214, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
+      propertyPath: amountOfBalls
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1189030218, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
       propertyPath: numberOfDots
       value: 30

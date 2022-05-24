@@ -375,6 +375,10 @@ PrefabInstance:
       propertyPath: ballAmount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7261028761428237426, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
+      propertyPath: fingerTex
+      value: 
+      objectReference: {fileID: 2356186255994430050, guid: 09ae2f6cffa98de479dbd83d329511f5, type: 3}
     - target: {fileID: 8025796081159100919, guid: 0c43d8b7d0843444cbf279b59c39032f, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -29,22 +29,22 @@ public class SwitchScene : MonoBehaviour //Malin
         }
         
         SceneManager.LoadScene("PauseMenu", LoadSceneMode.Additive);
-        Time.timeScale = 0;
+        CannonStats.Instance.cannonActive = false;
     }
     public void NextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Time.timeScale = 1;
+        CannonStats.Instance.cannonActive = true;
     }
     public void MainMenu()
     {
         SceneManager.LoadScene("Menu");
-        Time.timeScale = 1;
+        CannonStats.Instance.cannonActive = true;
     }
     public void LevelMenu()
     {
         SceneManager.LoadScene("Level Menu");
-        Time.timeScale = 1;
+        CannonStats.Instance.cannonActive = true;
     }
     public void LoadScene()
     {
@@ -53,19 +53,24 @@ public class SwitchScene : MonoBehaviour //Malin
     public void RemovePauseScene()
     {
         SceneManager.UnloadSceneAsync("PauseMenu");
-        Time.timeScale = 1;
+        CannonStats.Instance.cannonActive = true;
     }
     public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1;
+        CannonStats.Instance.cannonActive = true;
     }
     public void TimeOn()
     {
-        Time.timeScale = 1;
+        CannonStats.Instance.cannonActive = true;
     }
     public void TimeOff()
     {
-        Time.timeScale = 0;
+        CannonStats.Instance.cannonActive = false;
+    }
+    public void ExitApplication()
+    {
+        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }
