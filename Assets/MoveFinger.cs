@@ -15,9 +15,9 @@ public class MoveFinger : MonoBehaviour
     {
         timeLeft -= Time.deltaTime;
 
-        if (timeLeft > 1f)
+        if (timeLeft > 1.2f)
         {
-            transform.position += new Vector3(0.04f, -0.08f, 0);
+            transform.position += new Vector3(0.02f, -0.03f, 0);
         }
 
         if (timeLeft < 0)
