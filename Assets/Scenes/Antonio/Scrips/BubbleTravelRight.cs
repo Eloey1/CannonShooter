@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bubble : MonoBehaviour
+public class BubbleTravelRight : MonoBehaviour
 {
     //ANTONIOS OCH EMILS SCRIPT
-    
+
     [SerializeField] float speed;
-    private bool movingUp = false;
+    private bool movingRight = false;
     GameObject ball;
     Rigidbody2D ballRb;
 
@@ -17,15 +17,17 @@ public class Bubble : MonoBehaviour
     void Update()
     {
 
-        if (movingUp == true)
+        if (movingRight == true)
         {
-            ball.transform.position += transform.up * speed * Time.deltaTime;
+            //ball.transform.position += transform.right * speed * Time.deltaTime;
+
+            ball.transform.position += Vector3.right * speed * Time.deltaTime;
         }
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {        
+    {
         if (collision.gameObject.tag == "Ball")
         {
             collision.transform.position = transform.position;
@@ -35,7 +37,7 @@ public class Bubble : MonoBehaviour
             ballRb = collision.GetComponent<Rigidbody2D>();
             ballRb.gravityScale = 0;
             ballRb.velocity = Vector2.zero;
-            movingUp = true;
+            movingRight = true;
 
         }
         if (collision.gameObject.tag == "Platform")
