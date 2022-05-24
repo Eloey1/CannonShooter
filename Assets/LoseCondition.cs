@@ -76,5 +76,18 @@ public class LoseCondition : MonoBehaviour
             }
             
         }
+        else
+        {
+            if (CannonStats.Instance.ballAmount == 0)
+            {
+                timeValue -= Time.deltaTime;
+                
+                if (timeValue <= 0)
+                {
+                    CannonStats.Instance.lose = true;
+                    Debug.Log("Time is out, you lost!");
+                }
+            }
+        }
     }
 }
