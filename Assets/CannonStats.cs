@@ -12,6 +12,7 @@ public class CannonStats : MonoBehaviour
     public int ballAmount;
     public GameObject ball;
     public Rigidbody2D ballRb;
+    public int nrOfLevels = 2; //Sätts till 8 oavsett vad jag skriver???
 
     public static CannonStats Instance { get; set; } = new CannonStats();
 

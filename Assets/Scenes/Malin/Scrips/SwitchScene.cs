@@ -33,7 +33,16 @@ public class SwitchScene : MonoBehaviour //Malin
     }
     public void NextScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Debug.Log(SceneManager.GetActiveScene().buildIndex + " " + CannonStats.Instance.nrOfLevels); //Debug, ta bort innan inlämning
+
+        if(SceneManager.GetActiveScene().buildIndex + 1 < CannonStats.Instance.nrOfLevels)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            CannonStats.Instance.cannonActive = true;
+            return;
+        }
+
+        SceneManager.LoadScene("Menu");
         CannonStats.Instance.cannonActive = true;
     }
     public void MainMenu()
