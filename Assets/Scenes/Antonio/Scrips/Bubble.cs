@@ -43,6 +43,13 @@ public class Bubble : MonoBehaviour
             Destroy(gameObject);
             ballRb.gravityScale = 1;
         }
+        if (collision.gameObject.tag == "Bubble")
+        {
+            Destroy(gameObject);
+            //ballRb.gravityScale = 1;
+            ballRb.AddForce(Vector3.up * speed, ForceMode2D.Impulse);
+            
+        }
 
     }
 
