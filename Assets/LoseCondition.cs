@@ -26,9 +26,9 @@ public class LoseCondition : MonoBehaviour
             CheckBounds();
             TimerAfterLastBall();
         }
-        
+
         // måste göra ett nytt condition där vi förlorar när bollen står still.
-        
+
         if (CannonStats.Instance.ballAmount == 0 && !inCamera)
         {
             CannonStats.Instance.lose = true;
