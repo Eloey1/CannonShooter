@@ -55,6 +55,11 @@ public class SwitchScene : MonoBehaviour //Malin
         SceneManager.LoadScene("Level Menu");
         CannonStats.Instance.cannonActive = true;
     }
+    public void HowToPlay()
+    {
+        SceneManager.LoadScene("HowToPlay", LoadSceneMode.Additive);
+        CannonStats.Instance.cannonActive = false;
+    }
     public void LoadScene()
     {
         SceneManager.LoadScene(specificScene);
@@ -66,7 +71,15 @@ public class SwitchScene : MonoBehaviour //Malin
     }
     public void ReloadScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if(1 < SceneManager.GetActiveScene().buildIndex && SceneManager.GetActiveScene().buildIndex < CannonStats.Instance.nrOfLevels)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene(2);
+        }
+        
         CannonStats.Instance.cannonActive = true;
     }
     public void TimeOn()
