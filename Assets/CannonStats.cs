@@ -12,6 +12,7 @@ public class CannonStats : MonoBehaviour
     public int ballAmount;
     public GameObject ball;
     public Rigidbody2D ballRb;
+    public bool win = false;
 
     public static CannonStats Instance { get; set; } = new CannonStats();
 

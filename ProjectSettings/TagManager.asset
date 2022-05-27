@@ -8,6 +8,8 @@ TagManager:
   - Goal
   - Stone
   - Platform
+  - Portal
+  - Bubble
   layers:
   - Default
   - TransparentFX

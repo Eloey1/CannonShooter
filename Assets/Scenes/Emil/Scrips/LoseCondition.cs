@@ -21,11 +21,14 @@ public class LoseCondition : MonoBehaviour
     
     void Update()
     {
-        CheckBounds();
-        TimerAfterLastBall();
+        if (CannonStats.Instance.win == false)
+        {
+            CheckBounds();
+            TimerAfterLastBall();
+        }
 
         // måste göra ett nytt condition där vi förlorar när bollen står still.
-        
+
         if (CannonStats.Instance.ballAmount == 0 && !inCamera)
         {
             CannonStats.Instance.lose = true;
@@ -75,6 +78,19 @@ public class LoseCondition : MonoBehaviour
                 }
             }
             
+        }
+        else
+        {
+            if (CannonStats.Instance.ballAmount == 0)
+            {
+                timeValue -= Time.deltaTime;
+                
+                if (timeValue <= 0)
+                {
+                    CannonStats.Instance.lose = true;
+                    Debug.Log("Time is out, you lost!");
+                }
+            }
         }
     }
 }
