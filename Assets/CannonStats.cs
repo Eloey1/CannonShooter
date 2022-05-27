@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class CannonStats : MonoBehaviour
 {
+    // Skript skapat av: Emil, Antonio och Malin
+    
     public float shootForce;
     public Vector2 rotation;
     public bool lose = false, cannonActive, threadActive;

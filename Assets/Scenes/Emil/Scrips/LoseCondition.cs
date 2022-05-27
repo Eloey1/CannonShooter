@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class LoseCondition : MonoBehaviour
 {
+    // Skript skapat av: Emil, Antonio
+
+
     [SerializeField] private int amountOfBalls;
     [SerializeField] private float maxWidth = 10;
     [SerializeField] private float maxHeight = 20;

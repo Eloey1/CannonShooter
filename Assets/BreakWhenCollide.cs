@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BreakWhenCollide : MonoBehaviour
 {
+    // Skript skapat av: Antonio
+
+
     [SerializeField] GameObject particlePrefab;
     private void Update()
     {

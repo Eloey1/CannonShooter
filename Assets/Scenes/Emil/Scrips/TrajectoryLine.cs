@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class TrajectoryLine : MonoBehaviour
 {
+    // Skript skapat av: Emil
+
+
     [SerializeField] private GameObject dotPrefab;
     [SerializeField] private GameObject[] dots;
 

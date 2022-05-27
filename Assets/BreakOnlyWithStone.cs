@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BreakOnlyWithStone : MonoBehaviour
 {
+    // Skript skapat av: Antonio
+
+
     [SerializeField] GameObject crackedStoneParticle;
 
 

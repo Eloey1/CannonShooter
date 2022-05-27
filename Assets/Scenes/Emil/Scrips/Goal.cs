@@ -5,17 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-    //[SerializeField] bool goal = false;
+    // Skript skapat av: Emil och Malin
+
+    
     [SerializeField] private GameObject particleEffect;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ball")
         {
-            Debug.Log("GOAL!!!");
+            // Förstör bollen om den träffar triggren i målet,  
             Destroy(collision.gameObject);
+            
             SceneManager.LoadScene("BetweenLevels", LoadSceneMode.Additive);
-            //Time.timeScale = 0;
+            
             CannonStats.Instance.win = true;
             CannonStats.Instance.cannonActive = false;
 
@@ -23,9 +26,6 @@ public class Goal : MonoBehaviour
             {
                 Instantiate(particleEffect, transform.position, transform.rotation);
             }
-
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Additive);
-            //goal = true;
         }
     }
 }
