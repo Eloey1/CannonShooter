@@ -79,9 +79,10 @@ public class LevelSelector : MonoBehaviour
             for (int j = 0; j < icon.GetComponentsInChildren<TextMeshProUGUI>().Length; j++)
             {
                 icon.GetComponentsInChildren<TextMeshProUGUI>()[j].SetText("Level\n" + currentLevelCount);
+                //icon.GetComponentInChildren<SwitchScene>().specificScene
             }
 
-            icon.GetComponent<SwitchScene>().specificScene = i;
+            icon.GetComponent<SwitchScene>().specificScene = currentLevelCount;
         }
     }
 
