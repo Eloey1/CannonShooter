@@ -15,6 +15,7 @@ public class TrajectoryLine : MonoBehaviour
     [SerializeField] private float distanceBtwDots = 0.1f;
     private float dotZPos; 
 
+    // Skapar alla prikar när spelet startas.
     void Start()
     {
         dots = new GameObject[numberOfDots];
@@ -33,8 +34,12 @@ public class TrajectoryLine : MonoBehaviour
         }
 
         Direction();
-        //FaceMouse();
+        DotsPositionUpdate();
+    }
 
+    // Detta kallas på i Update() för att prickarna ska veta vilken position de ska ha varje frame.
+    void DotsPositionUpdate()
+    {
         if (CannonStats.Instance.shootForce != 0)
         {
             for (int i = 0; i < dots.Length; i++)
@@ -51,11 +56,7 @@ public class TrajectoryLine : MonoBehaviour
         }
     }
 
-    //void FaceMouse()
-    //{
-    //    transform.up = -CannonStats.Instance.rotation;
-    //}
-
+    // Direktionen trajecory linan ska riktas åt.
     void Direction()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -67,6 +68,7 @@ public class TrajectoryLine : MonoBehaviour
         }
     }
 
+    // Räknar ut positionerna till prickarna för trajectory linan. 
     Vector2 DotPosition(float time)
     {
         Vector2 currentDotPos = (Vector2)transform.position + (-CannonStats.Instance.rotation.normalized * CannonStats.Instance.shootForce * time) + 0.5f * Physics2D.gravity * (time * time);

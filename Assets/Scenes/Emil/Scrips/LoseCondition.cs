@@ -13,7 +13,6 @@ public class LoseCondition : MonoBehaviour
     [SerializeField] private float maxHeight = 20;
     [SerializeField] private float timeValue = 5;
     
-    private Vector2 ballPos;
     private bool inCamera = true;
 
     void Start()
@@ -30,18 +29,15 @@ public class LoseCondition : MonoBehaviour
             TimerAfterLastBall();
         }
 
-        // måste göra ett nytt condition där vi förlorar när bollen står still.
 
         if (CannonStats.Instance.ballAmount == 0 && !inCamera)
         {
             CannonStats.Instance.lose = true;
             Debug.Log("You Lost!");
         }
-
-        //Debug.Log("inCamera: " + inCamera);
-        //Debug.Log("Lose: " + CannonStats.Instance.lose);
     }
 
+    // Kollar om den sista bollen är tillräkligt långt ut från kameran, om den är det så ändras en bool och vi förlorar.
     void CheckBounds()
     {
         if (CannonStats.Instance.ball != null)
@@ -66,6 +62,7 @@ public class LoseCondition : MonoBehaviour
         }
     }
 
+   // Efter den sista bollen har blivigt skjuten så startar en timer som räknar ner och när timern är slut så förlorar man.
     void TimerAfterLastBall()
     {
         if (CannonStats.Instance.ball != null)
@@ -77,7 +74,6 @@ public class LoseCondition : MonoBehaviour
                 if (timeValue <= 0)
                 {
                     CannonStats.Instance.lose = true;
-                    Debug.Log("Time is out, you lost!");
                 }
             }
             
@@ -91,7 +87,6 @@ public class LoseCondition : MonoBehaviour
                 if (timeValue <= 0)
                 {
                     CannonStats.Instance.lose = true;
-                    Debug.Log("Time is out, you lost!");
                 }
             }
         }

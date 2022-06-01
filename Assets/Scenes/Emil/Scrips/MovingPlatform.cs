@@ -19,12 +19,18 @@ public class MovingPlatform : MonoBehaviour
 
     void Update()
     {
+       MoveThePlatform();
+    }
+
+    // Platformen går mellan indexen så att den går fram och tillbaka.
+    void MoveThePlatform()
+    {
         if (Vector2.Distance(transform.position, points[index].position) < 0.2)
         {
             index++;
             if (index == points.Length)
             {
-                index = 0; 
+                index = 0;
             }
         }
 
