@@ -12,8 +12,6 @@ public class Bubble : MonoBehaviour
     Rigidbody2D ballRb;
 
 
-
-    // Update is called once per frame
     void Update()
     {
 
@@ -26,12 +24,13 @@ public class Bubble : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {        
-        if (collision.gameObject.tag == "Ball")
+        if (collision.gameObject.tag == "Ball") // När bubblan träffar taggen "Ball", blir bubblan en child av bollen
         {
             collision.transform.position = transform.position;
             this.transform.parent = collision.transform;
             ball = collision.gameObject;
 
+            // Hämtar bollens RigidBody för att kunna maipulera den, sen gör gravityscale till 0 och velocityn. 
             ballRb = collision.GetComponent<Rigidbody2D>();
             ballRb.gravityScale = 0;
             ballRb.velocity = Vector2.zero;

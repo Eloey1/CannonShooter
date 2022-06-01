@@ -35,7 +35,6 @@ public class CannonStats : MonoBehaviour
         if (CannonStats.Instance.lose && !SceneManager.GetSceneByName("RestartMenu").isLoaded)
         {
             SceneManager.LoadScene("RestartMenu", LoadSceneMode.Additive); //Tar upp restart-menyn
-            //Time.timeScale = 0; //Pausar tiden
             CannonStats.Instance.cannonActive = false;
 
             if (SceneManager.GetSceneByName("Background").isLoaded)

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7261028761428237426}
   - component: {fileID: 6594296411948604621}
   - component: {fileID: -852374545237457214}
+  - component: {fileID: 5520168955105297581}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -153,9 +154,11 @@ MonoBehaviour:
   rotation: {x: 0, y: 0}
   lose: 0
   cannonActive: 0
+  threadActive: 0
   ballAmount: 0
   ball: {fileID: 0}
   ballRb: {fileID: 0}
+  win: 0
 --- !u!114 &-852374545237457214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +175,19 @@ MonoBehaviour:
   maxWidth: 10
   maxHeight: 20
   timeValue: 10
+--- !u!114 &5520168955105297581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8025796081159100922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf59d6f9b44d972468319ea9796d3b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  errorTextPrefab: {fileID: 301401247016822887, guid: 8f47b44485796ef4091e31b40def2853, type: 3}
 --- !u!1 &8025796081422556457
 GameObject:
   m_ObjectHideFlags: 0
