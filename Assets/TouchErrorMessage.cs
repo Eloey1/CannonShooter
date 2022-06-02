@@ -22,9 +22,15 @@ public class TouchErrorMessage : MonoBehaviour
     void Update()
     {
 
+        if (touch.phase == TouchPhase.Ended)
+        {
+            dragFromCannon = false;
+        }
+
         if (Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
+            dragFromCannon = true;
             touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
             touchPosition.z = transform.position.z;
 
@@ -51,7 +57,7 @@ public class TouchErrorMessage : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && cannonHitbox.bounds.Contains(mousePos))
             {
-                Debug.Log("in cannon");
+                //Debug.Log("in cannon");
                 error = false;
             }
             else
