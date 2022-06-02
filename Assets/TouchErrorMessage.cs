@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class TouchErrorMessage : MonoBehaviour
 {
+    // Skript skapat av: Emil, Antonio
+
 
     [SerializeField] private GameObject errorTextPrefab;
     private BoxCollider cannonHitbox;
     private Touch touch;
+   
     private Vector3 touchPosition;
     private Vector3 mousePos;
-    private bool dragFromCannon = false;
-    private bool error = false;
+    
+    private bool errorMouse = false;
+    private bool errorTouch = false;
+    private bool touching = false;
 
     void Start()
     {
@@ -21,58 +26,53 @@ public class TouchErrorMessage : MonoBehaviour
 
     void Update()
     {
-        if (cannonHitbox.bounds.Contains(mousePos) && touch.phase == TouchPhase.Began)
-        {
-            dragFromCannon = true;
-        }
-        
-        else if (touch.phase == TouchPhase.Ended)
-        {
-            dragFromCannon = false;
-        }
+        ErrorInputs();
+        ErrorChecks();
+    }
 
+    // Här kollar om musenpekaren eller om du använder moblien och gör så error meddelandet ska skrivat ut eller inte.
+    void ErrorInputs()
+    {
         if (Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
-            dragFromCannon = true;
             touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
             touchPosition.z = transform.position.z;
 
-            if (Input.GetTouch(0).phase == TouchPhase.Began && cannonHitbox.bounds.Contains(touchPosition))
+            
+            if (CannonStats.Instance.threadActive)
             {
-                error = false;
+                errorTouch = false;
+                
             }
-            else
+            else if (!CannonStats.Instance.threadActive && touching)
             {
-                error = true;
+                errorTouch = true;
+                touching = true;
             }
         }
-        
-        //if (Input.GetMouseButtonUp(0))
-        //{
-        //    dragFromCannon = false;
-        //}
+
 
         if (Input.GetMouseButton(0))
         {
-            //dragFromCannon = Input.GetMouseButton(0);
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = transform.position.z;
 
             if (Input.GetMouseButtonDown(0) && cannonHitbox.bounds.Contains(mousePos))
             {
-                //Debug.Log("in cannon");
-                error = false;
+                errorMouse = false;
             }
             else
             {
-                error = true;
+                errorMouse = true;
             }
         }
+    }
 
-
-
-        if (!cannonHitbox.bounds.Contains(touchPosition) && Input.touchCount > 0 && error)
+    // Här kollar den mest att texten inte är null och om vi har vunnit/förlorat så ska den inte gå att få error meddelande.
+    void ErrorChecks()
+    {
+        if (!cannonHitbox.bounds.Contains(touchPosition) && Input.touchCount > 0 && errorTouch)
         {
             if (errorTextPrefab != null)
             {
@@ -86,7 +86,8 @@ public class TouchErrorMessage : MonoBehaviour
                 }
             }
         }
-        else if (!cannonHitbox.bounds.Contains(mousePos) && Input.GetMouseButtonDown(0) && error)
+
+        else if (!cannonHitbox.bounds.Contains(mousePos) && Input.GetMouseButtonDown(0) && errorMouse)
         {
             if (errorTextPrefab != null)
             {

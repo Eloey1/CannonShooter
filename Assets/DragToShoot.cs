@@ -172,6 +172,7 @@ public class DragToShoot : MonoBehaviour
         while (touch.phase != TouchPhase.Ended || mouseClicked)
         {
             threadActive = true;
+            CannonStats.Instance.threadActive = true;
             ShootForce = Vector2.Distance(shootPointPos, mousePosition) * shootForceMultiplier;
 
             CannonRotation();
@@ -179,6 +180,7 @@ public class DragToShoot : MonoBehaviour
 
         shoot = true;
         threadActive = false;
+        CannonStats.Instance.threadActive = false;
     }
 
     void Shoot(float shootForce)
