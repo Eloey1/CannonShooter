@@ -21,8 +21,12 @@ public class TouchErrorMessage : MonoBehaviour
 
     void Update()
     {
-
-        if (touch.phase == TouchPhase.Ended)
+        if (cannonHitbox.bounds.Contains(mousePos) && touch.phase == TouchPhase.Began)
+        {
+            dragFromCannon = true;
+        }
+        
+        else if (touch.phase == TouchPhase.Ended)
         {
             dragFromCannon = false;
         }
@@ -34,7 +38,7 @@ public class TouchErrorMessage : MonoBehaviour
             touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
             touchPosition.z = transform.position.z;
 
-            if (touch.phase == TouchPhase.Began && cannonHitbox.bounds.Contains(touchPosition))
+            if (Input.GetTouch(0).phase == TouchPhase.Began && cannonHitbox.bounds.Contains(touchPosition))
             {
                 error = false;
             }
@@ -44,14 +48,14 @@ public class TouchErrorMessage : MonoBehaviour
             }
         }
         
-        if (Input.GetMouseButtonUp(0))
-        {
-            dragFromCannon = false;
-        }
+        //if (Input.GetMouseButtonUp(0))
+        //{
+        //    dragFromCannon = false;
+        //}
 
         if (Input.GetMouseButton(0))
         {
-            dragFromCannon = Input.GetMouseButton(0);
+            //dragFromCannon = Input.GetMouseButton(0);
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = transform.position.z;
 
