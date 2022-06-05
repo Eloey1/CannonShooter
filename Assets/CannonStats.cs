@@ -15,6 +15,7 @@ public class CannonStats : MonoBehaviour
     public GameObject ball;
     public Rigidbody2D ballRb;
     public bool win = false;
+    public int nrOfLevels = 17;
 
     public static CannonStats Instance { get; set; } = new CannonStats();
 
