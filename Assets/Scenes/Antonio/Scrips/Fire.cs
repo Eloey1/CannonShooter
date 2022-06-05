@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
+    // ANTONIOS SKRIPT 
+
     //Förstör allt i sin väg :)
     private void OnCollisionEnter2D(Collision2D collision)
     {
