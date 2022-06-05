@@ -15,12 +15,14 @@ public class CannonStats : MonoBehaviour
     public GameObject ball;
     public Rigidbody2D ballRb;
     public bool win = false;
-    public int nrOfLevels = 17;
+    public int nrOfLevels = 18;
 
     public static CannonStats Instance { get; set; } = new CannonStats();
 
     private void Awake()
     {
+        nrOfLevels = 18;
+
         if (Instance != null && Instance != this)
         {
             Destroy(this);

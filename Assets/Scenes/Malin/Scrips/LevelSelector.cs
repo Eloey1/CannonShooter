@@ -9,7 +9,7 @@ public class LevelSelector : MonoBehaviour
     public GameObject levelHolder;
     public GameObject levelIcon;
     public GameObject thisCanvas;
-    public int numberOfLevels = 50;
+    public int numberOfLevels = 17;
     public Vector2 iconSpacing;
     private Rect panelDimensions;
     private Rect iconDimensions;
@@ -81,7 +81,7 @@ public class LevelSelector : MonoBehaviour
                 icon.GetComponentsInChildren<TextMeshProUGUI>()[j].SetText("Level\n" + currentLevelCount);
             }
 
-            icon.GetComponent<SwitchScene>().specificScene = i;
+            icon.GetComponent<SwitchScene>().specificScene = currentLevelCount;
         }
     }
 
